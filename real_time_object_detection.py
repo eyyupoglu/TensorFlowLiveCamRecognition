@@ -90,7 +90,7 @@ while True:
 			count = time.clock()
 			if key == ord("s"):
 				print("now!!!")
-				name = "frame%d.jpg"%count
+				name = "frame.jpg"
 				cv2.imwrite(name, frame)
 				threads = []
 				print(CLASSES[idx])
