@@ -98,10 +98,13 @@ while True:
 				t = threading.Thread(target=pushPictureToGithub(name))
 				threads.append(t)
 				t.start()
-				t2 = threading.Thread(target=getApi(name))
-				threads.append(t2)
-				t2.start()
-			
+				try:
+					t2 = threading.Thread(target=getApi(name))
+					threads.append(t2)
+					t2.start()
+				except:
+					pass
+				
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
 			y = startY - 15 if startY - 15 > 15 else startY + 15
