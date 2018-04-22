@@ -7,3 +7,6 @@ python3 real_time_object_detection.py --prototxt MobileNetSSD_deploy.prototxt.tx
 
 # Face Recognition Usage:
 python3 faceRecogLive.py
+
+# Permanent Github User:
+git config --global credential.helper 'cache --timeout 3600'
