@@ -33,6 +33,9 @@ def getApi(fileName):
     import pyttsx3
     engine = pyttsx3.init()
     engine.say(image_caption)
+    rate = engine.getProperty('rate')
+    engine.setProperty('rate', rate-50)
+    engine.setProperty("voice", "female")
     engine.runAndWait()
 
 
