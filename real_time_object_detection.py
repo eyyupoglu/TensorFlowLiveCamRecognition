@@ -1,3 +1,18 @@
+
+import subprocess
+import threading
+
+def pushPictureToGithub(fileName):
+	subprocess.call("(git pull)", shell=True)
+	subprocess.call("(git add )" + fileName, shell=True)
+	subprocess.call("(git commit -m \"asdasd\")", shell=True) 
+	subprocess.call("(git push)", shell=True)
+
+	print("could not push picture")
+	subprocess.call(["eyyupoglu"])
+	subprocess.call(["mamet0012"])
+
+
 # USAGE
 # python real_time_object_detection.py --prototxt MobileNetSSD_deploy.prototxt.txt --model MobileNetSSD_deploy.caffemodel
 
@@ -81,8 +96,12 @@ while True:
 				print("now!!!")
 				name = "frame%d.jpg"%count
 				cv2.imwrite(name, frame)
-				#pushFrameToGithub(name)
+				threads = []
 				print(CLASSES[idx])
+
+				t = threading.Thread(target=pushPictureToGithub(name))
+				threads.append(t)
+				t.start()
 			
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
