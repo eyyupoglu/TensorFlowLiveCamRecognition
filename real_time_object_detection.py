@@ -4,13 +4,9 @@ import threading
 
 def pushPictureToGithub(fileName):
 	subprocess.call("(git pull)", shell=True)
-	subprocess.call("(git add )" + fileName, shell=True)
+	subprocess.call("(git add *)" , shell=True)
 	subprocess.call("(git commit -m \"asdasd\")", shell=True) 
 	subprocess.call("(git push)", shell=True)
-
-	print("could not push picture")
-	subprocess.call(["eyyupoglu"])
-	subprocess.call(["mamet0012"])
 
 
 # USAGE
