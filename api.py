@@ -30,8 +30,8 @@ def getApi(fileName):
     image_caption = analysis["description"]["captions"][0]["text"].capitalize()
     print(image_caption)
 
-    import pyttsx
-    engine = pyttsx.init()
+    import pyttsx3
+    engine = pyttsx3.init()
     engine.say(image_caption)
     engine.runAndWait()
 
