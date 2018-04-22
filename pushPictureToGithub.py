@@ -1,14 +1,12 @@
-import github3
+import subprocess
 
+def pushPictureToGithub(fileName):
+    try:
+        subprocess.call("(git pull)", shell=True)
+        subprocess.call("(git add *)", shell=True)
+        subprocess.call("(git commit -m \"asdasd\")", shell=True) 
+        subprocess.call("(git push)", shell=True)
+    except:
+        print("could not push picture")
 
-gh = github3.login(username='eyyupoglu', password ='mamet0012')
-repository = gh.repository('', 'TensorFlowLiveCamRecognition')
-
-fileName = "mehmet.jpg"
-with open(fileName, 'rb') as fd:
-    contents = fd.read()
-    repository.create_file(
-        path=fileName,
-        message='Start tracking {!r}'.format(fileName),
-        content=contents,
-    )
+pushPictureToGithub("frame10.jpg")
