@@ -1,7 +1,7 @@
 
 import subprocess
 import threading
-
+from api import *
 def pushPictureToGithub(fileName):
 	subprocess.call("(git pull)", shell=True)
 	subprocess.call("(git add *)" , shell=True)
@@ -98,6 +98,9 @@ while True:
 				t = threading.Thread(target=pushPictureToGithub(name))
 				threads.append(t)
 				t.start()
+				t2 = threading.Thread(target=getApi(name))
+				threads.append(t2)
+				t2.start()
 			
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[idx], 2)
